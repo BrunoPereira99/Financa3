@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Financeiro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>💼 Painel Financeiro</h1>
+
+  <div class="grid">
+    <div class="card">
+      <h2>💰 Saldo Atual</h2>
+      <p id="saldo" class="positive">R$ 0,00</p>
+    </div>
+
+    <div class="card">
+      <h2>➕ Adicionar Movimentação</h2>
+      <input type="date" id="data">
+      <input type="text" id="descricao" placeholder="Descrição">
+      <input type="number" id="valor" placeholder="Valor">
+      <select id="tipo">
+        <option value="entrada">Entrada</option>
+        <option value="saida">Saída</option>
+      </select>
+      <button onclick="adicionarMovimentacao()">Adicionar</button>
+    </div>
+
+    <div class="card">
+      <h2>📄 Últimas Movimentações</h2>
+      <ul id="movimentacoes"></ul>
+    </div>
+
+    <div class="card">
+      <h2>📆 Contas Futuras</h2>
+      <input type="date" id="dataFutura">
+      <input type="text" id="descricaoFutura" placeholder="Descrição">
+      <input type="number" id="valorFutura" placeholder="Valor">
+      <button onclick="adicionarContaFutura()">Adicionar Conta</button>
+      <ul id="contasFuturas"></ul>
+    </div>
+
+    <div class="card">
+      <h2>📊 Entradas vs Saídas</h2>
+      <canvas id="graficoPizza" height="200"></canvas>
+    </div>
+
+    <div class="card">
+      <h2>📉 Lucro ou Prejuízo</h2>
+      <canvas id="graficoBarras" height="200"></canvas>
+      <p id="statusFinanceiro"></p>
+    </div>
+
+    <div class="card">
+      <h2>📈 Evolução do Saldo</h2>
+      <canvas id="graficoLinha" height="200"></canvas>
+    </div>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
